@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ciberseguridad - Unidad 1: Conceptos</title>
+  <style>
+    :root{
+      --bg: #d8b4f8;
+      --nav: #a855f7;
+      --submenu: #9333ea;
+      --accent: #7e22ce;
+      --table-head: #c084fc;
+      --hover: #e9d5ff;
+    }
+
+    *{box-sizing: border-box;}
+    body{
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      color: #2d0b45;
+    }
+
+    /* Menú superior (mismo markup/estilos que en melany01) */
+    nav {
+      background-color: var(--nav);
+      padding: 14px 10px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav .menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: inline-flex;
+      gap: 18px;
+      align-items: center;
+    }
+    nav .menu li { position: relative; }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 8px 10px;
+      display: inline-block;
+    }
+    nav a:hover { color: #facc15; }
+
+    .has-sub .dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      background: var(--submenu);
+      border-radius: 10px;
+      padding: 8px 0;
+      min-width: 200px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .has-sub:focus-within .dropdown,
+    .has-sub:hover .dropdown {
+      display: block;
+    }
+    .dropdown li { list-style: none; }
+    .dropdown a {
+      display: block;
+      padding: 10px 16px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .dropdown a:hover { color: #facc15; background: rgba(255,255,255,0.04); border-radius: 6px; }
+
+    /* Contenedor */
+    .content {
+      max-width: 1000px;
+      margin: 36px auto;
+      background: white;
+      border-radius: 15px;
+      padding: 28px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--accent);
+      font-size: 2.4rem;
+      font-style: italic;
+      margin: 0 0 18px 0;
+    }
+
+    h2 {
+      color: #6b21a8;
+      font-size: 1.5rem;
+      margin-top: 26px;
+      margin-bottom: 12px;
+      border-bottom: 3px solid var(--nav);
+      display: inline-block;
+      padding-bottom: 6px;
+    }
+
+    /* Tablas */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 1rem;
+    }
+    th, td {
+      border: 1px solid #9333ea;
+      padding: 12px 14px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: var(--table-head);
+      color: white;
+      font-size: 1.02rem;
+      text-transform: uppercase;
+    }
+    tr:nth-child(even) td { background: #f3e8ff; }
+    tr:hover td { background: var(--hover); transition: 0.2s; }
+
+    /* Mejor lectura en celdas grandes */
+    td p { margin: 0 0 8px 0; line-height: 1.4; color: #2d0b45; }
+    td small { display:block; color:#4a2a6b; margin-top:6px; }
+
+    @media (max-width: 780px){
+      .content { margin: 18px 12px; padding: 16px; }
+      h1 { font-size: 1.6rem; }
+      h2 { font-size: 1.2rem; }
+      nav .menu { gap: 10px; }
+      .has-sub .dropdown { min-width: 160px; left: -6px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menú (igual que portada) -->
+  <nav>
+    <ul class="menu" role="menubar" aria-label="Navegación principal">
+      <li><a href="melany01.html">Inicio</a></li>
+
+      <li class="has-sub" tabindex="0">
+        <a href="#" aria-haspopup="true" aria-expanded="false">Unidad 1</a>
+        <ul class="dropdown" role="menu" aria-label="Unidad 1">
+          <li><a href="melany02.html" role="menuitem">Conceptos</a></li>
+          <li><a href="melany03.html" role="menuitem">Ataques</a></li>
+          <li><a href="melany04.html" role="menuitem">Protección</a></li>
+        </ul>
+      </li>
+
+      <li class="has-sub" tabindex="0">
+        <a href="#" aria-haspopup="true" aria-expanded="false">Unidad 2</a>
+        <ul class="dropdown" role="menu" aria-label="Unidad 2">
+          <li><a href="#" role="menuitem">Conceptos</a></li>
+          <li><a href="#" role="menuitem">Ataques</a></li>
+          <li><a href="#" role="menuitem">Protección</a></li>
+        </ul>
+      </li>
+
+      <li class="has-sub" tabindex="0">
+        <a href="#" aria-haspopup="true" aria-expanded="false">Unidad 3</a>
+        <ul class="dropdown" role="menu" aria-label="Unidad 3">
+          <li><a href="#" role="menuitem">Conceptos</a></li>
+          <li><a href="#" role="menuitem">Ataques</a></li>
+          <li><a href="#" role="menuitem">Protección</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Contenido completo -->
+  <div class="content">
+    <h1>Unidad 1: Conceptos de Ciberseguridad</h1>
+
+    <h2>Conceptos Básicos</h2>
+    <table>
+      <tr>
+        <th>Concepto</th>
+        <th>Descripción / Ejemplo</th>
+      </tr>
+      <tr>
+        <td>Confidencialidad</td>
+        <td>
+          <p>Mantener la información accesible solo para quienes estén autorizados.</p>
+          <small>Ejemplo: cifrado de mensajes y control de acceso a carpetas.</small>
+        </td>
+      </tr>
+      <tr>
+        <td>Integridad</td>
+        <td>
+          <p>Garantizar que los datos no se alteren sin autorización y se pueda detectar cualquier cambio.</p>
+          <small>Ejemplo: firmas digitales y checksums (hashes).</small>
+        </td>
+      </tr>
+      <tr>
+        <td>Disponibilidad</td>
+        <td>
+          <p>Que los sistemas y datos estén disponibles cuando los usuarios los necesiten.</p>
+          <small>Ejemplo: redundancia, backups y mitigación de DDoS.</small>
+        </td>
+      </tr>
+      <tr>
+        <td>Autenticación</td>
+        <td>
+          <p>Verificar que una identidad (usuario, dispositivo) es quien dice ser.</p>
+          <small>Ejemplo: contraseña + 2FA (doble factor).</small>
+        </td>
+      </tr>
+      <tr>
+        <td>Autorización</td>
+        <td>
+          <p>Determinar qué acciones puede realizar una identidad autenticada.</p>
+          <small>Ejemplo: permisos de archivo y roles en un sistema.</small>
+        </td>
+      </tr>
+    </table>
+
+    <h2>Tipos de Malware (detallado)</h2>
+    <table>
+      <tr>
+        <th>Tipo</th>
+        <th>Descripción</th>
+      </tr>
+      <tr>
+        <td>Virus</td>
+        <td>
+          <p>Programa que se adjunta a archivos ejecutables y se propaga cuando se ejecutan.</p>
+          <small>Impacto: corrupción o pérdida de información; típico en archivos compartidos.</small>
+        </td>
+      </tr>
+      <tr>
+        <td>Gusano (Worm)</td>
+        <td>
+          <p>Se replica de forma autónoma a través de redes explotando vulnerabilidades.</p>
+          <small>Impacto: congestión de red, caídas de servicios.</small>
+        </td>
+      </tr>
+      <tr>
+        <td>Caballo de Troya (Trojan)</td>
+        <td>
+          <p>Se presenta como software legítimo pero incluye funciones maliciosas ocultas.</p>
+          <small>Impacto: acceso remoto, robo de credenciales y puertas traseras.</small>
+        </td>
+      </tr>
+      <tr>
+        <td>Ransomware</td>
+        <td>
+          <p>Cifra archivos o bloquea sistemas pidiendo rescate a cambio de la clave de recuperación.</p>
+          <small>Impacto: interrupción total de operaciones y pérdidas económicas.</small>
+        </td>
+      </tr>
+      <tr>
+        <td>Spyware</td>
+        <td>
+          <p>Monitorea y envía información del usuario sin su consentimiento.</p>
+          <small>Impacto: violación de la privacidad, robo de datos sensibles.</small>
+        </td>
+      </tr>
+      <tr>
+        <td>Adware</td>
+        <td>
+          <p>Software que inyecta anuncios; a veces acompañando otras amenazas.</p>
+          <small>Impacto: molestia UX y disminución de rendimiento.</small>
+        </td>
+      </tr>
+      <tr>
+        <td>Rootkit</td>
+        <td>
+          <p>Tecnologías diseñadas para ocultar procesos y mantener acceso persistente.</p>
+          <small>Impacto: detección difícil y control profundo del sistema.</small>
+        </td>
+      </tr>
+      <tr>
+        <td>Keylogger</td>
+        <td>
+          <p>Registra las teclas que presiona el usuario para obtener contraseñas y datos.</p>
+          <small>Impacto: robo de credenciales bancarias y cuentas.</small>
+        </td>
+      </tr>
+      <tr>
+        <td>Botnet</td>
+        <td>
+          <p>Red de equipos infectados controlados por un atacante para realizar tareas coordinadas.</p>
+          <small>Impacto: DDoS, envío masivo de spam, fraude.</small>
+        </td>
+      </tr>
+      <tr>
+        <td>Cryptojacker</td>
+        <td>
+          <p>Software que utiliza recursos del equipo para minar criptomonedas sin permiso.</p>
+          <small>Impacto: ralentización, sobrecalentamiento y mayor consumo energético.</small>
+        </td>
+      </tr>
+      <tr>
+        <td>Wiper</td>
+        <td>
+          <p>Malware diseñado para destruir o sobrescribir datos de forma irreversible.</p>
+          <small>Impacto: pérdida masiva e irreparable de información.</small>
+        </td>
+      </tr>
+    </table>
+
+    <h2>Otros conceptos clave</h2>
+    <table>
+      <tr>
+        <th>Concepto</th>
+        <th>Descripción / Prevención</th>
+      </tr>
+      <tr>
+        <td>Phishing</td>
+        <td>
+          <p>Mensajes que suplantan identidades para robar credenciales o datos.</p>
+          <small>Prevención: comprobar remitente, URLs, activar 2FA y educar usuarios.</small>
+        </td>
+      </tr>
+      <tr>
+        <td>DDoS</td>
+        <td>
+          <p>Ataque que satura recursos de un servicio con tráfico masivo.</p>
+          <small>Prevención: balanceo, filtros y servicios anti-DDoS.</small>
+        </td>
+      </tr>
+      <tr>
+        <td>Firewall</td>
+        <td>
+          <p>Filtra tráfico de red según reglas; actúa como primera línea de defensa.</p>
+          <small>Buena práctica: reglas mínimas necesarias y monitorización.</small>
+        </td>
+      </tr>
+      <tr>
+        <td>Antivirus / EDR</td>
+        <td>
+          <p>Herramientas que detectan y mitiguan malware (firma / heurística / comportamiento).</p>
+          <small>Actualizar firmas y combinar con detección de comportamiento.</small>
+        </td>
+      </tr>
+      <tr>
+        <td>Backup</td>
+        <td>
+          <p>Copia periódica e independiente de datos críticos para recuperación.</p>
+          <small>Regla 3-2-1: 3 copias, 2 medios distintos, 1 offsite.</small>
+        </td>
+      </tr>
+      <tr>
+        <td>Ingeniería Social</td>
+        <td>
+          <p>Técnicas que manipulan a personas para obtener acceso o datos.</p>
+          <small>Prevención: formación y políticas de verificación.</small>
+        </td>
+      </tr>
+      <tr>
+        <td>VPN</td>
+        <td>
+          <p>Túnel cifrado que protege tráfico en redes públicas.</p>
+          <small>Usar proveedores confiables y protocolos seguros.</small>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+</body>
+</html>

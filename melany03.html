@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ataques de Ciberseguridad</title>
+
+  <!-- Bootstrap -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+  <style>
+    :root {
+      --lila: #f54df5;
+      --morado: #9935e0;
+      --fondo: #bf98e7;
+    }
+
+    body {
+      background-color: var(--fondo);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Barra de navegación */
+    .navbar {
+      background-color: var(--morado);
+      border-radius: 0;
+      margin-bottom: 0;
+    }
+    .navbar-brand {
+      color: white !important;
+      font-weight: bold;
+    }
+    .nav > li > a {
+      color: white !important;
+      font-weight: bold;
+    }
+    .nav > li > a:hover, 
+    .dropdown-menu > li > a:hover {
+      background-color: var(--lila) !important;
+      color: black !important;
+    }
+
+    .dropdown-menu {
+      background-color: var(--morado);
+    }
+    .dropdown-menu > li > a {
+      color: white !important;
+    }
+
+    /* Título */
+    h2 {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--morado);
+    }
+
+    /* Tabla */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 30px 0;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+      vertical-align: middle;
+    }
+    th {
+      background-color: var(--morado);
+      color: white;
+      font-size: 16px;
+    }
+    td {
+      font-size: 15px;
+      color: #333;
+    }
+    img {
+      width: 160px;
+      height: auto;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Menú -->
+  <nav class="navbar navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="melany01.html">Inicio</a>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">UNIDAD 1 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="melany02.html">Conceptos</a></li>
+            <li><a href="melany03.html">Ataques</a></li>
+            <li><a href="melany04.html">Protección</a></li>
+          </ul>
+        </li>
+        <li><a href="melany02.html">UNIDAD 2</a></li>
+        <li><a href="melany03.html">UNIDAD 3</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Contenido -->
+  <div class="container">
+    <h2>Ataques de Ciberseguridad</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Ataque</th>
+          <th>Descripción</th>
+          <th>Impacto</th>
+          <th>Ejemplo</th>
+          <th>Imagen</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-ataques"></tbody>
+    </table>
+  </div>
+
+  <script>
+    const ataques = [
+      {
+        "ataque": "Phishing",
+        "descripcion": "Engaña a los usuarios con correos o páginas falsas para robar credenciales.",
+        "impacto": "Robo de identidad, pérdida de acceso a cuentas bancarias o correos.",
+        "ejemplo": "Un correo falso que simula ser de PayPal solicitando tu contraseña.",
+        "imagen":"https://easydmarc.com/blog/wp-content/uploads/2021/09/Module-4-image-1024x768.png"
+      },
+      {
+        "ataque": "Malware",
+        "descripcion": "Software malicioso que daña sistemas, roba información o espía actividades.",
+        "impacto": "Pérdida de archivos, robo de datos, daños económicos.",
+        "ejemplo": "WannaCry (2017) bloqueó miles de equipos pidiendo rescate en bitcoins.",
+        "imagen":"https://www.ikusi.com/wp-content/uploads/2025/07/ikusi_ikusi_image_873-e1671548333730.jpg"
+      },
+      {
+        "ataque": "Ransomware",
+        "descripcion": "Cifra los archivos del usuario y pide un pago para liberarlos.",
+        "impacto": "Interrupción total de servicios, pérdida de datos importantes.",
+        "ejemplo": "CryptoLocker en 2013 afectó a miles de computadoras.",
+        "imagen":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAOdCAXfpd9sD7eD4TfJWZkui7yNjrnFLTEA&s"
+      },
+      {
+        "ataque": "Virus Informático",
+        "descripcion": "Se adjunta a archivos legítimos y se replica al ejecutarlos.",
+        "impacto": "Ralentiza el sistema, corrompe archivos, provoca fallos.",
+        "ejemplo": "ILOVEYOU (2000) infectó millones de computadoras en todo el mundo.",
+        "imagen":"https://www.redseguridad.com/wp-content/uploads/sites/2/2021/05/virus-informatico.jpg"
+      },
+      {
+        "ataque": "Ataque DDoS",
+        "descripcion": "Satura un servidor con múltiples solicitudes para hacerlo inaccesible.",
+        "impacto": "Caída de servicios, pérdidas económicas, daño a la reputación.",
+        "ejemplo": "Ataque a Dyn (2016) afectó Twitter, Netflix y Spotify.",
+        "imagen":"https://www.revista.imef.org.mx/wp-content/uploads/2022/11/Que-hacer-en-caso-de-ataque-DDoS.jpg"
+      },
+      {
+        "ataque": "Ingeniería Social",
+        "descripcion": "Manipulación psicológica de las personas para obtener información.",
+        "impacto": "Acceso a contraseñas, información sensible o privilegios no autorizados.",
+        "ejemplo": "Un atacante se hace pasar por técnico de soporte para pedir credenciales.",
+        "imagen":"https://img.innovaciondigital360.com/wp-content/uploads/2022/10/07155136/ingenieria-social.jpg"
+      },
+      {
+        "ataque": "Spyware",
+        "descripcion": "Programa espía que recopila información sin consentimiento.",
+        "impacto": "Robo de datos personales, espionaje corporativo.",
+        "ejemplo": "Keyloggers que registran todo lo que escribe el usuario.",
+        "imagen":"https://usa.kaspersky.com/content/en-us/images/repository/isc/2017-images/malware-img-17.jpg"
+      }
+    ];
+
+    const tbody = document.getElementById("tabla-ataques");
+
+    ataques.forEach(ataque => {
+      const fila = `
+        <tr>
+          <td>${ataque.ataque}</td>
+          <td>${ataque.descripcion}</td>
+          <td>${ataque.impacto}</td>
+          <td>${ataque.ejemplo}</td>
+          <td><img src="${ataque.imagen}" alt="${ataque.ataque}"></td>
+        </tr>
+      `;
+      tbody.innerHTML += fila;
+    });
+  </script>
+</body>
+</html>

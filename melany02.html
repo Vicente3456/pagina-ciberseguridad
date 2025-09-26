@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ciberseguridad - Unidad 1: Conceptos</title>
+
+  <!-- Estilos -->
   <style>
     :root{
       --bg: #d8b4f8;
@@ -22,7 +24,7 @@
       color: #2d0b45;
     }
 
-    /* Menú superior (mismo markup/estilos que en melany01) */
+    /* Barra de navegación */
     nav {
       background-color: var(--nav);
       padding: 14px 10px;
@@ -124,7 +126,6 @@
     tr:nth-child(even) td { background: #f3e8ff; }
     tr:hover td { background: var(--hover); transition: 0.2s; }
 
-    /* Mejor lectura en celdas grandes */
     td p { margin: 0 0 8px 0; line-height: 1.4; color: #2d0b45; }
     td small { display:block; color:#4a2a6b; margin-top:6px; }
 
@@ -139,41 +140,41 @@
 </head>
 <body>
 
-  <!-- Menú (igual que portada) -->
+  <!-- Menú -->
   <nav>
-    <ul class="menu" role="menubar" aria-label="Navegación principal">
+    <ul class="menu">
       <li><a href="index.html">Inicio</a></li>
 
       <li class="has-sub" tabindex="0">
         <a href="#" aria-haspopup="true" aria-expanded="false">Unidad 1</a>
-        <ul class="dropdown" role="menu" aria-label="Unidad 1">
-          <li><a href="melany02.html" role="menuitem">Conceptos</a></li>
-          <li><a href="melany03.html" role="menuitem">Ataques</a></li>
-          <li><a href="melany04.html" role="menuitem">Protección</a></li>
+        <ul class="dropdown">
+          <li><a href="melany02.html">Conceptos</a></li>
+          <li><a href="melany03.html">Ataques</a></li>
+          <li><a href="melany04.html">Protección</a></li>
         </ul>
       </li>
 
       <li class="has-sub" tabindex="0">
         <a href="#" aria-haspopup="true" aria-expanded="false">Unidad 2</a>
-        <ul class="dropdown" role="menu" aria-label="Unidad 2">
-          <li><a href="#" role="menuitem">Conceptos</a></li>
-          <li><a href="#" role="menuitem">Ataques</a></li>
-          <li><a href="#" role="menuitem">Protección</a></li>
+        <ul class="dropdown">
+          <li><a href="#">Conceptos</a></li>
+          <li><a href="#">Ataques</a></li>
+          <li><a href="#">Protección</a></li>
         </ul>
       </li>
 
       <li class="has-sub" tabindex="0">
         <a href="#" aria-haspopup="true" aria-expanded="false">Unidad 3</a>
-        <ul class="dropdown" role="menu" aria-label="Unidad 3">
-          <li><a href="#" role="menuitem">Conceptos</a></li>
-          <li><a href="#" role="menuitem">Ataques</a></li>
-          <li><a href="#" role="menuitem">Protección</a></li>
+        <ul class="dropdown">
+          <li><a href="#">Conceptos</a></li>
+          <li><a href="#">Ataques</a></li>
+          <li><a href="#">Protección</a></li>
         </ul>
       </li>
     </ul>
   </nav>
 
-  <!-- Contenido completo -->
+  <!-- Contenido -->
   <div class="content">
     <h1>Unidad 1: Conceptos de Ciberseguridad</h1>
 
@@ -220,7 +221,7 @@
       </tr>
     </table>
 
-    <h2>Tipos de Malware (detallado)</h2>
+    <h2>Tipos de Malware</h2>
     <table>
       <tr>
         <th>Tipo</th>
@@ -228,80 +229,47 @@
       </tr>
       <tr>
         <td>Virus</td>
-        <td>
-          <p>Programa que se adjunta a archivos ejecutables y se propaga cuando se ejecutan.</p>
-          <small>Impacto: corrupción o pérdida de información; típico en archivos compartidos.</small>
-        </td>
+        <td>Programa que se adjunta a archivos ejecutables y se propaga cuando se ejecutan.</td>
       </tr>
       <tr>
-        <td>Gusano (Worm)</td>
-        <td>
-          <p>Se replica de forma autónoma a través de redes explotando vulnerabilidades.</p>
-          <small>Impacto: congestión de red, caídas de servicios.</small>
-        </td>
+        <td>Gusano</td>
+        <td>Se replica autónomamente a través de redes explotando vulnerabilidades.</td>
       </tr>
       <tr>
-        <td>Caballo de Troya (Trojan)</td>
-        <td>
-          <p>Se presenta como software legítimo pero incluye funciones maliciosas ocultas.</p>
-          <small>Impacto: acceso remoto, robo de credenciales y puertas traseras.</small>
-        </td>
+        <td>Caballo de Troya</td>
+        <td>Software que parece legítimo pero incluye funciones maliciosas ocultas.</td>
       </tr>
       <tr>
         <td>Ransomware</td>
-        <td>
-          <p>Cifra archivos o bloquea sistemas pidiendo rescate a cambio de la clave de recuperación.</p>
-          <small>Impacto: interrupción total de operaciones y pérdidas económicas.</small>
-        </td>
+        <td>Cifra archivos o bloquea sistemas pidiendo rescate a cambio de la clave.</td>
       </tr>
       <tr>
         <td>Spyware</td>
-        <td>
-          <p>Monitorea y envía información del usuario sin su consentimiento.</p>
-          <small>Impacto: violación de la privacidad, robo de datos sensibles.</small>
-        </td>
+        <td>Monitorea y envía información del usuario sin su consentimiento.</td>
       </tr>
       <tr>
         <td>Adware</td>
-        <td>
-          <p>Software que inyecta anuncios; a veces acompañando otras amenazas.</p>
-          <small>Impacto: molestia UX y disminución de rendimiento.</small>
-        </td>
+        <td>Inyecta anuncios en el sistema; puede acompañar otras amenazas.</td>
       </tr>
       <tr>
         <td>Rootkit</td>
-        <td>
-          <p>Tecnologías diseñadas para ocultar procesos y mantener acceso persistente.</p>
-          <small>Impacto: detección difícil y control profundo del sistema.</small>
-        </td>
+        <td>Oculta procesos y mantiene acceso persistente al sistema.</td>
       </tr>
       <tr>
         <td>Keylogger</td>
-        <td>
-          <p>Registra las teclas que presiona el usuario para obtener contraseñas y datos.</p>
-          <small>Impacto: robo de credenciales bancarias y cuentas.</small>
-        </td>
+        <td>Registra teclas para obtener contraseñas y datos.</td>
       </tr>
       <tr>
         <td>Botnet</td>
-        <td>
-          <p>Red de equipos infectados controlados por un atacante para realizar tareas coordinadas.</p>
-          <small>Impacto: DDoS, envío masivo de spam, fraude.</small>
-        </td>
+        <td>Red de equipos controlados por un atacante para ataques coordinados.</td>
       </tr>
       <tr>
         <td>Cryptojacker</td>
-        <td>
-          <p>Software que utiliza recursos del equipo para minar criptomonedas sin permiso.</p>
-          <small>Impacto: ralentización, sobrecalentamiento y mayor consumo energético.</small>
-        </td>
+        <td>Utiliza recursos del equipo para minar criptomonedas sin permiso.</td>
       </tr>
       <tr>
         <td>Wiper</td>
-        <td>
-          <p>Malware diseñado para destruir o sobrescribir datos de forma irreversible.</p>
-          <small>Impacto: pérdida masiva e irreparable de información.</small>
-        </td>
+        <td>Malware diseñado para destruir datos de forma irreversible.</td>
       </tr>
     </table>
 
@@ -313,56 +281,34 @@
       </tr>
       <tr>
         <td>Phishing</td>
-        <td>
-          <p>Mensajes que suplantan identidades para robar credenciales o datos.</p>
-          <small>Prevención: comprobar remitente, URLs, activar 2FA y educar usuarios.</small>
-        </td>
+        <td>Mensajes que suplantan identidades para robar credenciales o datos. Prevención: verificar remitente, URLs y activar 2FA.</td>
       </tr>
       <tr>
         <td>DDoS</td>
-        <td>
-          <p>Ataque que satura recursos de un servicio con tráfico masivo.</p>
-          <small>Prevención: balanceo, filtros y servicios anti-DDoS.</small>
-        </td>
+        <td>Ataque que satura recursos de un servicio. Prevención: balanceo, filtros y servicios anti-DDoS.</td>
       </tr>
       <tr>
         <td>Firewall</td>
-        <td>
-          <p>Filtra tráfico de red según reglas; actúa como primera línea de defensa.</p>
-          <small>Buena práctica: reglas mínimas necesarias y monitorización.</small>
-        </td>
+        <td>Filtra tráfico según reglas. Buena práctica: reglas mínimas y monitorización constante.</td>
       </tr>
       <tr>
         <td>Antivirus / EDR</td>
-        <td>
-          <p>Herramientas que detectan y mitiguan malware (firma / heurística / comportamiento).</p>
-          <small>Actualizar firmas y combinar con detección de comportamiento.</small>
-        </td>
+        <td>Detecta y mitiga malware. Mantener firmas actualizadas y monitoreo de comportamiento.</td>
       </tr>
       <tr>
         <td>Backup</td>
-        <td>
-          <p>Copia periódica e independiente de datos críticos para recuperación.</p>
-          <small>Regla 3-2-1: 3 copias, 2 medios distintos, 1 offsite.</small>
-        </td>
+        <td>Copia periódica de datos críticos. Regla 3-2-1: 3 copias, 2 medios distintos, 1 offsite.</td>
       </tr>
       <tr>
         <td>Ingeniería Social</td>
-        <td>
-          <p>Técnicas que manipulan a personas para obtener acceso o datos.</p>
-          <small>Prevención: formación y políticas de verificación.</small>
-        </td>
+        <td>Manipulación de personas para obtener acceso o datos. Prevención: formación y políticas de verificación.</td>
       </tr>
       <tr>
         <td>VPN</td>
-        <td>
-          <p>Túnel cifrado que protege tráfico en redes públicas.</p>
-          <small>Usar proveedores confiables y protocolos seguros.</small>
-        </td>
+        <td>Túnel cifrado que protege tráfico en redes públicas. Usar proveedores confiables y protocolos seguros.</td>
       </tr>
     </table>
 
   </div>
-
 </body>
 </html>

@@ -1,252 +1,206 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculadora</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protección en Ciberseguridad</title>
+
+  <!-- Bootstrap -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
   <style>
     :root {
-      --soft-lila: #e6ccff;
-      --deep-lila: #9c4dcc;
-      --light-bg: #f3e5f5;
-      --white: #ffffff;
-      --text-dark: #4a0072;
+      --lila: #f54df5;
+      --morado: #9935e0;
+      --fondo: #d8b4f8;
     }
 
     body {
+      background-color: var(--fondo);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      background-color: var(--soft-lila);
-      color: var(--text-dark);
     }
 
-    /* --- NAVBAR --- */
-    nav {
-      background-color: var(--deep-lila);
-      padding: 10px 20px;
-      color: var(--white);
+    /* Barra de navegación */
+    .navbar {
+      background-color: var(--morado);
+      border-radius: 0;
+      margin-bottom: 0;
     }
-
     .navbar-brand {
-      background-color: var(--white);
-      color: var(--deep-lila);
-      padding: 6px 12px;
-      border-radius: 6px;
-      text-decoration: none;
+      color: white !important;
       font-weight: bold;
     }
-
-    .navbar-menu {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 10px;
-    }
-
-    .nav-item {
-      position: relative;
-    }
-
-    .nav-link {
-      color: var(--white);
-      text-decoration: none;
+    .nav > li > a {
+      color: white !important;
       font-weight: bold;
-      cursor: pointer;
     }
-
+    .nav > li > a:hover, 
+    .dropdown-menu > li > a:hover {
+      background-color: var(--lila) !important;
+      color: black !important;
+    }
     .dropdown-menu {
-      position: absolute;
-      top: 25px;
-      left: 0;
-      background-color: var(--white);
-      color: var(--deep-lila);
-      padding: 10px;
-      border-radius: 6px;
-      display: none;
-      z-index: 10;
-      min-width: 150px;
+      background-color: var(--morado);
+    }
+    .dropdown-menu > li > a {
+      color: white !important;
     }
 
-    .nav-item:hover .dropdown-menu {
-      display: block;
-    }
-
-    .dropdown-menu a {
-      display: block;
-      color: var(--deep-lila);
-      text-decoration: none;
-      padding: 5px 0;
-    }
-
-    .jumbotron {
-      background-color: var(--white);
-      color: var(--deep-lila);
-      padding: 20px;
-      margin: 20px auto;
-      border-radius: 10px;
+    /* Título */
+    h2 {
       text-align: center;
-      max-width: 600px;
+      margin-top: 30px;
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--morado);
     }
 
-    /* --- CALCULADORA --- */
-    .calculator {
-      background-color: var(--light-bg);
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      width: 300px;
-      margin: 0 auto 40px;
-    }
-
-    .display {
+    /* Tabla */
+    table {
       width: 100%;
-      height: 60px;
-      text-align: right;
-      padding: 10px;
-      font-size: 24px;
-      border: none;
+      border-collapse: collapse;
+      margin: 30px 0;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       border-radius: 10px;
-      margin-bottom: 20px;
-      background-color: var(--white);
-      color: var(--text-dark);
+      overflow: hidden;
     }
-
-    .buttons {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+      vertical-align: middle;
     }
-
-    .buttons button {
-      padding: 20px;
-      font-size: 18px;
-      border: none;
-      border-radius: 10px;
-      background-color: var(--deep-lila);
+    th {
+      background-color: var(--morado);
       color: white;
-      cursor: pointer;
-      transition: background-color 0.2s;
+      font-size: 16px;
     }
-
-    .buttons button:hover {
-      background-color: #7e3dbb;
+    td {
+      font-size: 15px;
+      color: #333;
     }
-
-    .buttons .equal {
-      grid-column: span 2;
-      background-color: #7e57c2;
-    }
-
-    .buttons .equal:hover {
-      background-color: #5e35b1;
-    }
-
-    @media (max-width: 500px) {
-      .calculator {
-        width: 90%;
-      }
+    img {
+      width: 160px;
+      height: auto;
+      border-radius: 8px;
     }
   </style>
 </head>
-
 <body>
-
-  <!-- NAVBAR -->
-  <nav>
-    <a class="navbar-brand" href="index.html">Inicio</a>
-
-    <div class="navbar-menu">
-      <div class="nav-item">
-        <span class="nav-link">UNIDAD 1 Ciberseguridad</span>
-        <div class="dropdown-menu">
-          <a href="./melany02.html">Conceptos</a>
-          <a href="./melany03.html">Ataques</a>
-          <a href="./melany04.html">Protección</a>
-        </div>
-      </div>
-
-      <div class="nav-item">
-        <span class="nav-link">UNIDAD 2</span>
-        <div class="dropdown-menu">
-          <a href="./melany05perfil.html">Perfil</a>
-          <a href="./melany06.html">Peliculas</a>
-          <a href="./index6.html">Protección</a>
-        </div>
-      </div>
-
-      <div class="nav-item">
-        <span class="nav-link">UNIDAD 3</span>
-        <div class="dropdown-menu">
-          <a href="./index7.html">Conceptos</a>
-          <a href="./index8.html">Ataques</a>
-          <a href="./index9.html">Protección</a>
-        </div>
-      </div>
+  <!-- Menú -->
+  <nav class="navbar navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Inicio</a>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">UNIDAD 1 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="melany02.html">Conceptos</a></li>
+            <li><a href="melany03.html">Ataques</a></li>
+            <li><a href="melany04.html">Protección</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">UNIDAD 2 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="melany05.html">Calculadora</a></li>
+            <li><a href="melany06.html">Películas</a></li>
+            <li><a href="melany07.html">Temática</a></li>
+          </ul>
+        </li>
+        <li><a href=".html">UNIDAD 3</a></li>
+      </ul>
     </div>
   </nav>
 
-  <!-- TÍTULO -->
-  <div class="jumbotron">
-    <h2>Calculadora Web</h2>
-    <p>Usa los botones para realizar operaciones</p>
+  <!-- Contenido -->
+  <div class="container">
+    <h2>Protección en Ciberseguridad</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Método</th>
+          <th>Descripción</th>
+          <th>Beneficio</th>
+          <th>Ejemplo</th>
+          <th>Imagen</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-proteccion"></tbody>
+    </table>
   </div>
 
-  <!-- CALCULADORA -->
-  <div class="calculator">
-    <input type="text" id="ans" class="display" readonly />
-
-    <div class="buttons">
-      <button onclick="Clear()">C</button>
-      <button onclick="Backspace()">←</button>
-      <button onclick="Solve('%')">%</button>
-      <button onclick="Solve('/')">÷</button>
-
-      <button onclick="Solve('7')">7</button>
-      <button onclick="Solve('8')">8</button>
-      <button onclick="Solve('9')">9</button>
-      <button onclick="Solve('*')">×</button>
-
-      <button onclick="Solve('4')">4</button>
-      <button onclick="Solve('5')">5</button>
-      <button onclick="Solve('6')">6</button>
-      <button onclick="Solve('-')">−</button>
-
-      <button onclick="Solve('1')">1</button>
-      <button onclick="Solve('2')">2</button>
-      <button onclick="Solve('3')">3</button>
-      <button onclick="Solve('+')">+</button>
-
-      <button onclick="Solve('0')">0</button>
-      <button onclick="Solve('.')">.</button>
-      <button class="equal" onclick="Solve('=')">=</button>
-    </div>
-  </div>
-
-  <!-- SCRIPT -->
   <script>
-    function Solve(val) {
-      const ans = document.getElementById("ans");
-      if (val === "=") {
-        try {
-          ans.value = eval(ans.value);
-        } catch (e) {
-          ans.value = "Error";
-        }
-      } else {
-        ans.value += val;
+    const proteccion = [
+      {
+        "metodo": "Antivirus",
+        "descripcion": "Software que detecta y elimina malware, virus y otras amenazas.",
+        "beneficio": "Protege el sistema contra infecciones y ataques maliciosos.",
+        "ejemplo": "Norton o McAfee escanean y bloquean archivos maliciosos.",
+        "imagen": "https://www.marketresearchintellect.com/images/blogs/guarding-the-digital-frontier-trends-in-the-anti-virus-software-market.webp"
+      },
+      {
+        "metodo": "Firewall",
+        "descripcion": "Bloquea accesos no autorizados controlando el tráfico de red.",
+        "beneficio": "Previene intrusiones y ataques como DDoS.",
+        "ejemplo": "Windows Defender Firewall filtra conexiones sospechosas.",
+        "imagen": "https://blog.hackmetrix.com/wp-content/uploads/2024/05/Como-configurar-un-firewall-para-PYMES-1160x680.png"
+      },
+      {
+        "metodo": "Autenticación de Dos Factores (2FA)",
+        "descripcion": "Añade una capa adicional de seguridad con un segundo método de verificación.",
+        "beneficio": "Reduce el riesgo de acceso no autorizado aunque se robe la contraseña.",
+        "ejemplo": "Google Authenticator envía un código al teléfono para iniciar sesión.",
+        "imagen": "https://blog.hackmetrix.com/wp-content/uploads/2021/11/Captura-de-Pantalla-2021-11-11-a-las-14.51.45.png"
+      },
+      {
+        "metodo": "Cifrado",
+        "descripcion": "Codifica datos para que solo usuarios autorizados puedan acceder.",
+        "beneficio": "Protege información sensible contra robos o interceptaciones.",
+        "ejemplo": "HTTPS asegura la comunicación en sitios web.",
+        "imagen": "https://latam.kaspersky.com/content/es-mx/images/repository/isc/2021/encryption-1.jpg"
+      },
+      {
+        "metodo": "Actualizaciones de Software",
+        "descripcion": "Mantiene programas y sistemas operativos con las últimas correcciones de seguridad.",
+        "beneficio": "Cierra vulnerabilidades explotadas por atacantes.",
+        "ejemplo": "Actualizar Windows para corregir fallos de seguridad.",
+        "imagen": "https://blog.udlap.mx/wp-content/uploads/2020/09/software.jpg"
+      },
+      {
+        "metodo": "Copias de Seguridad",
+        "descripcion": "Guarda datos importantes en ubicaciones seguras para restaurarlos si es necesario.",
+        "beneficio": "Permite recuperar datos tras ataques como ransomware.",
+        "ejemplo": "Google Drive o discos externos para respaldos automáticos.",
+        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQijR7jWnjmLBP3uTqCLzQHlNcQh0vN7bqVNA&s"
+      },
+      {
+        "metodo": "Educación en Ciberseguridad",
+        "descripcion": "Capacita a usuarios para reconocer amenazas como phishing o ingeniería social.",
+        "beneficio": "Reduce errores humanos que facilitan ataques.",
+        "ejemplo": "Cursos en línea sobre cómo identificar correos falsos.",
+        "imagen": "https://www.gob.mx/cms/uploads/press/main_image/227294/post_CIBERSEG_EDUCATIVA.jpg"
       }
-    }
+    ];
 
-    function Clear() {
-      document.getElementById("ans").value = "";
-    }
+    const tbody = document.getElementById("tabla-proteccion");
 
-    function Backspace() {
-      const ans = document.getElementById("ans");
-      ans.value = ans.value.slice(0, -1);
-    }
+    proteccion.forEach(metodo => {
+      const fila = `
+        <tr>
+          <td>${metodo.metodo}</td>
+          <td>${metodo.descripcion}</td>
+          <td>${metodo.beneficio}</td>
+          <td>${metodo.ejemplo}</td>
+          <td><img src="${metodo.imagen}" alt="${metodo.metodo}"></td>
+        </tr>
+      `;
+      tbody.innerHTML += fila;
+    });
   </script>
-
 </body>
 </html>
